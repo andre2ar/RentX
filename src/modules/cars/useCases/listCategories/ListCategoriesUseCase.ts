@@ -1,4 +1,4 @@
-import ICategoriesRepository from "../../repositories/categories/ICategoriesRepository";
+import ICategoriesRepository from "../../repositories/contracts/ICategoriesRepository";
 import Category from "../../models/Category";
 
 export default class ListCategoriesUseCase {

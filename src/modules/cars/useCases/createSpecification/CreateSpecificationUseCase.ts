@@ -1,12 +1,12 @@
-import Specification from "../models/Specification";
-import ISpecificationsRepository from "../repositories/specifications/ISpecificationsRepository";
+import Specification from "../../models/Specification";
+import ISpecificationsRepository from "../../repositories/contracts/ISpecificationsRepository";
 
 interface ICreateSpecification {
     name: string;
     description: string;
 }
 
-export class CreateSpecificationService {
+export class CreateSpecificationUseCase {
     constructor(
         private specificationRepository: ISpecificationsRepository
     ) {}
