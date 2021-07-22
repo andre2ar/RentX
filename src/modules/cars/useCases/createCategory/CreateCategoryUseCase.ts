@@ -1,4 +1,4 @@
-import Category from "../../models/Category";
+import Category from "../../entities/Category";
 import ICategoriesRepository from "../../repositories/contracts/ICategoriesRepository";
 
 interface ICreateCategory {
@@ -11,14 +11,14 @@ export default class CreateCategoryUseCase {
         private categoriesRepository: ICategoriesRepository
     ) {}
 
-    execute({ name, description }: ICreateCategory): Category
+    async execute({ name, description }: ICreateCategory): Promise<Category>
     {
-        const categoryExists = this.categoriesRepository.findByName(name);
+        const categoryExists = await this.categoriesRepository.findByName(name);
         if(categoryExists) {
             throw new Error("Category already exists");
         }
 
-        return this.categoriesRepository.create({
+        return await this.categoriesRepository.create({
             name,
             description
         });
