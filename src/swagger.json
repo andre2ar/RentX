@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "RentalX documentation",
+    "title": "RentX documentation",
     "description": "This is an API Rent",
     "version": "1.0.0",
     "contact": {
@@ -24,19 +24,7 @@
             "description": "Category data",
             "required": true,
             "schema": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                }
-              },
-              "example": {
-                "name": "Category name example",
-                "description": "Category description example"
-              }
+              "$ref": "#definitions/Category"
             }
           }
         ],
@@ -57,21 +45,103 @@
           "200": {
             "description": "Success",
             "schema": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "description": {
-                    "type": "string"
-                  }
+              "$ref": "#definitions/Category"
+            }
+          }
+        }
+      }
+    },
+    "/categories/import": {
+      "post": {
+        "tags": ["Category"],
+        "summary": "Import categories",
+        "description": "Import categories",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Category data",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "file": {
+                  "type": "string",
+                  "format": "binary"
                 }
               }
             }
           }
+        ],
+        "responses": {
+          "201": {
+            "description": "Imported"
+          }
         }
+      }
+    },
+    "/specifications": {
+      "post": {
+        "tags": ["Specifications"],
+        "summary": "Create specification",
+        "description": "Create a new specification",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Specification data",
+            "required": true,
+            "schema": {
+              "$ref": "#definitions/Specification"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Specification already exists"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Category": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "example": {
+        "name": "Category name example",
+        "description": "Category description example"
+      }
+    },
+    "Specification": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "example": {
+        "name": "Specification name example",
+        "description": "Specification description example"
       }
     }
   }
