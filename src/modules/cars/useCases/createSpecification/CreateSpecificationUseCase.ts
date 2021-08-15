@@ -14,8 +14,8 @@ export class CreateSpecificationUseCase {
         private specificationRepository: ISpecificationsRepository
     ) {}
 
-    execute({name, description}: ICreateSpecification): Specification {
-        const specificationExists = this.specificationRepository.findByName(name);
+    async execute({name, description}: ICreateSpecification): Promise<Specification> {
+        const specificationExists = await this.specificationRepository.findByName(name);
 
         if(specificationExists) {
             throw new Error("Specification already exists");
