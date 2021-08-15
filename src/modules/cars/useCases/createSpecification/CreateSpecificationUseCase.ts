@@ -1,13 +1,16 @@
 import Specification from "../../entities/Specification";
 import ISpecificationsRepository from "../../repositories/contracts/ISpecificationsRepository";
+import {inject, injectable} from "tsyringe";
 
 interface ICreateSpecification {
     name: string;
     description: string;
 }
 
+@injectable()
 export class CreateSpecificationUseCase {
     constructor(
+        @inject('SpecificationsRepository')
         private specificationRepository: ISpecificationsRepository
     ) {}
 

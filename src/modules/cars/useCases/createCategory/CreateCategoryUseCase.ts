@@ -1,13 +1,16 @@
 import Category from "../../entities/Category";
 import ICategoriesRepository from "../../repositories/contracts/ICategoriesRepository";
+import {inject, injectable} from "tsyringe";
 
 interface ICreateCategory {
     name: string;
     description: string;
 }
 
+@injectable()
 export default class CreateCategoryUseCase {
     constructor(
+        @inject('CategoriesRepository')
         private categoriesRepository: ICategoriesRepository
     ) {}
 
