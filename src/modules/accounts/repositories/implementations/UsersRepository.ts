@@ -22,6 +22,10 @@ class UsersRepository implements IUsersRepository {
 
         return user;
     }
+
+    findByEmail(email: string): Promise<User> {
+        return this.repository.findOne({email});
+    }
 }
 
 export default UsersRepository;
