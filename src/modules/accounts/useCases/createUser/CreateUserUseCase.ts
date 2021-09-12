@@ -10,10 +10,9 @@ class CreateUserUseCase {
         private usersRepository: IUsersRepository
     ) {}
 
-    execute({name, username, email, password, driver_license}: ICreateUserDTO): Promise<User> {
+    execute({name, email, password, driver_license}: ICreateUserDTO): Promise<User> {
         return  this.usersRepository.create({
             name,
-            username,
             email,
             password,
             driver_license
