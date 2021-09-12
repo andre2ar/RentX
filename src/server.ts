@@ -1,5 +1,6 @@
 import express from 'express';
 import swaggerUi from 'swagger-ui-express';
+import 'dotenv/config';
 import './database';
 
 import "./shared/container";
@@ -15,4 +16,5 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.use(router);
 
-app.listen(3333, () => console.log('Server is running'));
+const port = process.env.PORT ?? 3333;
+app.listen(port, () => console.log(`Server is running on port ${port}`));
