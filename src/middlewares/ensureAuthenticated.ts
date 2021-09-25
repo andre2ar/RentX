@@ -33,5 +33,8 @@ export async function ensureAuthenticated(request: Request, response: Response, 
         throw new AppError("User not found", 401);
     }
 
+    delete user.password;
+    request.user = user;
+
     next();
 }

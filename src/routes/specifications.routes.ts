@@ -7,6 +7,7 @@ const specificationsRouter = Router();
 const createSpecificationController = new CreateSpecificationController();
 
 specificationsRouter.use(ensureAuthenticated);
+
 specificationsRouter.post('/', createSpecificationController.handle);
 
 export default specificationsRouter;

@@ -1,6 +1,6 @@
 .idea
 node_modules
-tmp/*
+uploads/*
 ormconfig.json
 yarn-error.log
 .env
