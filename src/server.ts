@@ -1,4 +1,4 @@
-import express, {NextFunction, Request, Response} from 'express';
+import express from 'express';
 import "express-async-errors";
 import swaggerUi from 'swagger-ui-express';
 import 'dotenv/config';
@@ -8,7 +8,7 @@ import "./shared/container";
 
 import router from "./routes";
 import swaggerFile from './swagger.json';
-import globalErrorHandler from "./middlewares/globalErrorHandler";
+import globalErrorHandler from "@middlewares/globalErrorHandler";
 
 const app = express();
 

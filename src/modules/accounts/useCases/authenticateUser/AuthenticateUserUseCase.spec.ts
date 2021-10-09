@@ -1,9 +1,8 @@
-import AuthenticateUserUseCase from "./AuthenticateUserUseCase";
-import UsersRepositoryInMemory from "../../repositories/implementations/in-memory/UsersRepositoryInMemory";
-import CreateUserUseCase from "../createUser/CreateUserUseCase";
-import ICreateUserDTO from "../../dtos/ICreateUserDTO";
-import {compare} from "bcrypt";
-import AppError from "../../../../errors/AppError";
+import ICreateUserDTO from "@modules/accounts/dtos/ICreateUserDTO";
+import AuthenticateUserUseCase from "@modules/accounts/useCases/authenticateUser/AuthenticateUserUseCase";
+import UsersRepositoryInMemory from "@modules/accounts/repositories/implementations/in-memory/UsersRepositoryInMemory";
+import CreateUserUseCase from "@modules/accounts/useCases/createUser/CreateUserUseCase";
+import AppError from "@errors/AppError";
 
 let authenticateUserUseCase: AuthenticateUserUseCase;
 let usersRepositoryInMemory: UsersRepositoryInMemory;

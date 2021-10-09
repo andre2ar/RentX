@@ -1,7 +1,7 @@
-import Category from "../../entities/Category";
-import ICategoriesRepository from "../../repositories/contracts/ICategoriesRepository";
 import {inject, injectable} from "tsyringe";
-import AppError from "../../../../errors/AppError";
+import AppError from "@errors/AppError";
+import Category from "@modules/cars/entities/Category";
+import ICategoriesRepository from "@modules/cars/repositories/contracts/ICategoriesRepository";
 
 interface ICreateCategory {
     name: string;

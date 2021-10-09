@@ -1,9 +1,10 @@
 import {inject, injectable} from "tsyringe";
-import IUsersRepository from "../../repositories/contracts/IUsersRepository";
 import {compare} from "bcrypt";
 import {sign} from "jsonwebtoken";
-import User from "../../entities/User";
-import AppError from "../../../../errors/AppError";
+
+import User from "@modules/accounts/entities/User";
+import AppError from "@errors/AppError";
+import IUsersRepository from "@modules/accounts/repositories/contracts/IUsersRepository";
 
 interface IRequest {
     email: string;

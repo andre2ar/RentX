@@ -1,5 +1,5 @@
-import ICategoriesRepository, {ICreateCategoryDTO} from "../../contracts/ICategoriesRepository";
-import Category from "../../../entities/Category";
+import Category from "@modules/cars/entities/Category";
+import ICategoriesRepository, {ICreateCategoryDTO} from "@modules/cars/repositories/contracts/ICategoriesRepository";
 
 class CategoriesRepositoryInMemory implements ICategoriesRepository {
     categories: Category[] = [];

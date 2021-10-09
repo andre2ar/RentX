@@ -1,7 +1,7 @@
-import Specification from "../../entities/Specification";
-import ISpecificationsRepository from "../../repositories/contracts/ISpecificationsRepository";
 import {inject, injectable} from "tsyringe";
-import AppError from "../../../../errors/AppError";
+import AppError from "@errors/AppError";
+import ISpecificationsRepository from "@modules/cars/repositories/contracts/ISpecificationsRepository";
+import Specification from "@modules/cars/entities/Specification";
 
 interface ICreateSpecification {
     name: string;
