@@ -1,5 +1,5 @@
 declare namespace Express {
-    import User from "../../modules/accounts/entities/User";
+    import User from "../../modules/accounts/infra/typeorm/entities/User";
 
     export interface Request {
         user: User;
